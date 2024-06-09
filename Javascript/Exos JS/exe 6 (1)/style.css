@@ -1,0 +1,32 @@
+table:not(#canva){
+    border-collapse: collapse
+}
+td{
+    border:1px solid black;
+    width: 20px;
+    height: 20px;
+}
+
+.Jaune{
+    background-color: yellow;
+}
+
+.Rouge{
+    background-color: red;
+}
+
+.Bleu{
+    background-color: blue;
+}
+
+.Vert{
+    background-color: green;
+}
+
+.Rose{
+    background-color: pink;
+}
+
+.Orange{
+    background-color: orange;
+}

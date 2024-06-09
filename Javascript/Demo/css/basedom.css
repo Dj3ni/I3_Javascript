@@ -1,0 +1,19 @@
+.para{
+    font-size: small;
+}
+
+.blue{
+    background-color: aqua;
+}
+
+.red{
+    background-color: red;
+}
+
+.strong{
+    font-weight: bolder;
+}
+
+.textColor{
+    color:darkgoldenrod;
+}

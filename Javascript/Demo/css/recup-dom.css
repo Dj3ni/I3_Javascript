@@ -1,0 +1,22 @@
+.red{
+    color: red;
+}
+
+
+/* Les classes */
+
+/* Les enfants de type <li>( direct ou indirect) de la balise  id 'List pates'*/
+
+#list_pates li{
+
+}
+
+/* Les balises li qui ont la classe red */
+li.red{
+
+}
+
+/* Les balises li OU les éléments avec la classe red */
+li, .red{
+    
+}
