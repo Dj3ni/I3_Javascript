@@ -114,7 +114,23 @@ let tab2 = new Array("valeur",1,true) //déprécié
         // Split
     tab.split("")//Va spliter les différents éléments d'une chaine de caractère en les séparant par un espace et donne un tableau. Ici Donne [1,2,3] 
 
+// 4. Dates
 
-    
+const now = new Date();// Date à l'instant t
+const janv1900 = new Date(1990,0,1,12,30,2,999)//janvier est le premier mois, on note l'inex et non ne numéro du mois!
+const formate = new Date('2020-01-01')
+const timeStamp = new Date(1717962766)//nombre de milisecondes écoulées depuis 1er janvier 1970
+
+    //Fonctions 
+
+    now.getFullYear()
+    now.getMonth()
+    now.getDate()
+    now.getHours()
+    now.getMinutes()
+    now.getSeconds()
+    now.getMilliseconds
+
+    // Sinon aller voir dans la librairie date-fns, indispensable pour les dates
     
 
