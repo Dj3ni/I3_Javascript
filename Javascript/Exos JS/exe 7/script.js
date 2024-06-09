@@ -25,3 +25,10 @@ const input = document.getElementById("input-somme")
 const numberValue = parseInt("input.value")
 // ou 
 const numberValue2 = input.valueAsNumber
+
+margarita.addEventListener("click", function(){
+    // input.value = numberValue + 10 //première possibilité
+    // input.value = numberValue2 + 10 //première possibilité
+    input.valueAsNumber += 10
+
+})
