@@ -8,11 +8,10 @@ const vNumber = 5;
 const vString = 'chaine';
 const vBoolean = true ;
 const vUndefined = undefined ;
-const vObject = {}; //c'est un tableau associatif, considéré comme un objet
-const vObject = [] ; // les tableaux sont aussi considérés comme des objets
-const vObject = new Date(); //création d'un nouvel objet
-
-const vObject = null; //vide
+let vObject = {}; //c'est un tableau associatif, considéré comme un objet
+vObject = [] ; // les tableaux sont aussi considérés comme des objets
+vObject = new Date(); //création d'un nouvel objet
+vObject = null; //vide
 const vFunction = function(){} //Fonctions
 
 
@@ -77,6 +76,7 @@ console.log(chaine.charAt(1));// "a" //récupère l'élément en position 1
 console.log(chaine.substring(3,9)); // 'chaine' //Récupère les caractères entre les positions 3 et 9 non compris
 console.log(chaine.split(' '));// renvoie un tableau qui contient:['ma','chaine','de','caractères']
 console.log(chaine.indexOf("de"));//10 // quelle est la première occurence de "de"
+chaine.reverse() //Inverse l'ordre des éléments
 
 
 // 3. Les tableaux
