@@ -1,10 +1,23 @@
-#test{
-    border: 1px solid black;
+body{
+    margin:0;
 }
 
-td{
-    max-width: 100px;
-    max-height: 300px;
+/* Distributeur */
+
+.distributeur{
+    background-color:#523249 ;
+    border-radius: 15%;
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+    }
+
+/* Boissons */
+
+
+.distributeur td{
+    max-width: 200px;
+    max-height: 500px;
     text-align: center;
 }
 
@@ -12,4 +25,32 @@ img{
     display: block;
     width: 100%;
     height: 100%;
+}
+
+#boissons tr:nth-child(even){
+    background-color: #848FA5;
+}
+
+#boissons tr:nth-child(odd){
+    background-color: white;
+}
+
+
+/* Notepad */
+#notepad{
+    border:1px solid black ;
+    padding: 5px;
+    background-color:#848FA5 ;
+}
+
+#notepad td{
+    border:1px solid black ;
+    padding: 5px;
+    background-color: aliceblue;
+}
+
+/* Receptacle  */
+
+.avaloir{
+    background-color: black;
 }
