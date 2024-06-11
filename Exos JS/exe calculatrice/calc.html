@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exe calculatrice</title>
+    <link rel="stylesheet" href="calc.css">
+    <!-- <script src="calc.js" defer></script> -->
+    <script src="calcSwitch.js" defer></script>
+    <script src="animation.js"defer></script>
+</head>
+<body>
+    <h1>Ma calculatrice</h1>
+    <h2>Instructions</h2>
+        <ol>
+            <li>Demander des nbr à l'utilisateur (les convertir!)</li>
+            <li>Demander un opérateur ou un menu qui sélectionnera l'opération</li>
+            <li>gérer la structure conditionnelle pour les * , / ,+, -</li>
+            <li>Afficher le calcul avec le résultat</li>
+            <li>Signaler si opération invalide</li>
+            <li>pas entrer dans opérations si pas number</li>
+        </ol>
+
+    <h2>Calclulatrice
+
+    </h2>
+
+    <input id = "inputNumber1" type="number" min = "0" value = "0">
+    <input id = "inputNumber2" type="number"  min = "0" value = "0">
+    <input id = "operation" type="text">
+    <button type = "submit">Calculer</button>
+
+    <h2>Version 2</h2>
+
+    <div>
+        <label for="prompt">Prompt: </label>
+        <input type="number" name="prompt" id="prompt">
+        
+    </div>
+    <br>
+
+    <div><table>        
+        <tbody>
+            <tr>
+                <td>CE</td>
+                <td>^</td>
+                <td>%</td>
+                <td>/</td>
+                
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>x</td>
+                
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>-</td>
+                
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td rowspan="2">+</td>
+                
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>.</td>
+                <td>=</td>
+                
+            </tr>
+        </tbody>
+
+    </table></div>
+    
+</body>
+</html>
