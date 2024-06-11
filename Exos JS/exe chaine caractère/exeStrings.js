@@ -12,6 +12,7 @@ console.log(chaine.indexOf("p")); //21
 
 // Retrouver la lettre située à l'indice 21
 console.log(chaine.charAt(21)); //"p"
+// on peut faire aussi chaine[21]
 
 // Remplacer javascript par Java et découper la chaîne
 
@@ -30,3 +31,4 @@ function reverseString(str) {
 reverseString("hello");
 
 console.log(reverseString(chaine)); // ok
+
