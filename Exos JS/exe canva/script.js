@@ -10,6 +10,7 @@ let currentColor; //variable pour mémoriser la couleur sur laquelle on va cliqu
 
 
 // Click tableau des couleurs
+
 Jaune.addEventListener("click", function(){
     currentColor = Jaune.textContent;
     console.log(Jaune);
@@ -41,13 +42,13 @@ const case1 = document.querySelector("#canva tr td")
 console.dir(case1)
 const case2 = document.querySelector("#canva tr td +td")
 console.dir(case2)
-const case3 = document.querySelector("#canva tr td:last-of-type")
+const case3 = document.querySelector("#canva tr td:last-child")
 console.log(case3)
-const case4 = document.querySelector("#canva tr +tr td")
+const case4 = document.querySelector("#canva tr:nth-child(2) td")
 console.log(case4)
-const case5 = document.querySelector("#canva tr +tr td +td")
+const case5 = document.querySelector("#canva tr:nth-child(2) td:nth-child(2)")
 console.log(case5)
-const case6 = document.querySelector("#canva tr +tr td:last-of-type")
+const case6 = document.querySelector("#canva tr:nth-child(2) td:last-of-type")
 console.log(case6);
 
 // Click tableau vide

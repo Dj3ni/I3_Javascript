@@ -28,7 +28,7 @@ const schweppesAgrum = document.querySelector("#boissons tbody tr:nth-child(6) t
 
 // Ajout d'un évènement lors de la sélection
 
-let input = prompt("Veuillez sélectionner votre boisson")
+// let input = prompt("Veuillez sélectionner votre boisson")
 
 
 // Affichage dans l'avaloir
