@@ -2,88 +2,36 @@
 // La combinaison doit être correcte
 // Si plus de stock indisquer sold out
 
-// Boisson odds
 
 let display = document.getElementById("prompt")
-console.dir(display);
-console.log(display.outerText);
+console.log(display.innerText);
 
-const notePad = document.querySelectorAll(" #notepad td:not(#prompt) ")
-// console.log(notePad);
+// Aller chercher boissons
 
-// console.log(outerText);
-// // Ajout évènement Notepad
+const coca = document.querySelector("#boissons tbody tr:nth-child(2) td").innerText
 
-// notePad.addEventListener('click', function(){
-//     display.outerText = notePad
+const cocaLight = document.querySelector("#boissons tbody tr:nth-child(2) td:nth-child(2)").innerText
 
-// })
+const cocaZero = document.querySelector("#boissons tbody tr:nth-child(2) td:nth-child(3)").innerText
 
-// input = notePad.parseInt(outerText)
+const fanta = document.querySelector("#boissons tbody tr:nth-child(4) td").innerText
 
-input = 2
+const sprite = document.querySelector("#boissons tbody tr:nth-child(4) td:nth-child(2)").innerText
 
-const coca = document.querySelector("#boissons tbody tr:nth-child(2) td").outerText
-console.log(coca);
+const iceTea = document.querySelector("#boissons tbody tr:nth-child(4) td:nth-child(3)").innerText
 
-const sprite = document.querySelector("#boissons tbody tr:nth-child(2) td:nth-child(2)").outerText
-console.log((sprite));
+const oasis = document.querySelector("#boissons tbody tr:nth-child(6) td").innerText
 
-const fanta = document.querySelector("#boissons tbody tr:nth-child(4) td").outerText
-console.log(fanta);
+const schweppes = document.querySelector("#boissons tbody tr:nth-child(6) td:nth-child(2)").innerText
 
-const schweppes = document.querySelector("#boissons tbody tr:nth-child(4) td:nth-child(2)").outerText
-console.log(schweppes);
+const schweppesAgrum = document.querySelector("#boissons tbody tr:nth-child(6) td:nth-child(3)").innerText
+
+// Ajout d'un évènement lors de la sélection
+
+let input = prompt("Veuillez sélectionner votre boisson")
 
 
-let stockCoca = 5;
-let stockFanta = 3;
-let stockSprite = 0;
-let stockSchweppes = 4;
+// Affichage dans l'avaloir
 
-if (!isNaN(input)){
-    switch (input){
-        case "1":
-            if(stockCoca > 0){
-                display.outerText = "Vous avez choisi le coca"
-                stockCoca-- ;
-            }
-            else{
-                display.outerText = "Plus de stock"
-            }
-            break
-
-        case "2":
-            if(stockSprite > 0){
-                display.outerText = "Vous avez choisi le sprite"
-                stockSprite-- ;
-            }
-            else{
-                display.outerText = "Plus de stock"
-            }
-            break
-
-        case "3":
-            if(stockFanta > 0){                
-                    display.outerText = "Vous avez choisi le Fanta"
-                    stockFanta-- ;
-            }
-            else{
-                display.outerText = "Plus de stock"
-            }
-            break
-
-        case "4":
-            if (stockSchweppes > 0){
-                display.outerText = "Vous avez choisi le Schweppes"
-            }
-            else{
-                display.outerText = "Plus de stock"
-            }
-            
-            break
-        default:
-            display.outerText = "Veuillez entrer un nombre correct"
-            break
-    }
-}
+let pick = document.querySelector("#avaloir img")
+console.log(pick);

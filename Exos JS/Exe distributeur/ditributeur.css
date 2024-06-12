@@ -5,20 +5,20 @@ body{
 /* Distributeur */
 
 .distributeur{
-    background-color:#523249 ;
+    background-color:grey ;
     border-radius: 15%;
-    width: 80%;
+    width: 60%;
+    padding: 30px;
     margin: auto;
     margin-top: 30px;
+    text-align: center;
     }
 
 /* Boissons */
 
-
 .distributeur td{
-    max-width: 200px;
-    max-height: 500px;
     text-align: center;
+    
 }
 
 img{
@@ -27,12 +27,21 @@ img{
     height: 100%;
 }
 
+#boissons{
+    border-collapse: collapse;
+    border: 1px solid black;
+    
+}
+
 #boissons tr:nth-child(even){
     background-color: #848FA5;
+    
 }
 
 #boissons tr:nth-child(odd){
     background-color: white;
+    vertical-align: bottom;
+    
 }
 
 
@@ -41,16 +50,40 @@ img{
     border:1px solid black ;
     padding: 5px;
     background-color:#848FA5 ;
+    box-shadow: 2px 2px 2px;
 }
 
-#notepad td{
+#prompt{
     border:1px solid black ;
     padding: 5px;
     background-color: aliceblue;
 }
 
+#notepad td:not(#prompt){
+    border:1px solid black ;
+    padding: 3px;
+    background-color: aliceblue;
+    border-radius: 30%;
+    box-shadow: 2px 2px 1px;
+}
+
+#notepad td:not(#prompt):hover{
+    box-shadow: none;
+}
+
+
 /* Receptacle  */
 
-.avaloir{
+#avaloir{
     background-color: black;
+    border: 1px solid black;
+    height : 200px;
+    padding: 5px;    
+}
+
+#avaloir img{
+    transition-duration: 1s;
+    max-height: 100px;
+    /* max-width: 100%; */
+    
 }
