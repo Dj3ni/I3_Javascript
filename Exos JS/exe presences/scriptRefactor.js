@@ -27,3 +27,18 @@ for (let index = 0; index < absente.length; index++) {
     })
 }
 
+// correction : pas besoin de statut, on peut utiliser le previousElementSibling et utiliser une seule boucle 
+
+for (let index = 0; index < presente.length; index++) {
+    presente[index].addEventListener("click",function(){
+        presente[index].textContent = "";
+        presente[index].previousElementSibling.textContent = "Présente"
+        presente[index].nextElementSibling.textContent = "❌"
+    })
+    absente[index].addEventListener("click",function(){
+        absente[index].previousElementSibling.textContent = "✅";
+        absente[index].previousElementSibling.previousElementSibling.textContent = "Absente"
+        // ou absente[index].parentElement.children[3].textContent = "Absente"
+        absente[index].textContent = ""
+    })
+}

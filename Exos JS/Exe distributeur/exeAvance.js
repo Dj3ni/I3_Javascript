@@ -32,11 +32,13 @@ let product = {
 //     console.log(`${value} => ${product[value]}`);
 // }
 
+
 // Sélection de la boisson
 
 let input = display.innerText
 
-if(!isNaN(input)){
-    product[parseInt(input)]
-}
+// if(!isNaN(input)){
+//     if
+//     product[parseInt(input)]
+// }
 

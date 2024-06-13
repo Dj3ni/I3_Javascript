@@ -56,6 +56,31 @@ let attempt2
 
 do{
     attempt2 = parseInt(prompt("Trouvez le nombre mystère: "));
-}while(attempt2 !== nbrMystère || attempt2 < 1 || isNaN(attempt2)){
-    
+}while(attempt2 !== nbrMystère || attempt2 < 1 || isNaN(attempt2)){    
 }
+
+// Utilisation du break
+
+let attempt3
+
+while(true){
+    if(attempt3 !== nbrMystère || attempt3 < 1 || isNaN(attempt3)){
+        if (attempt3 > nbrMystère){
+            alert("Trop grand")
+            attempt3 = parseInt(prompt("Trouvez le nombre mystère: "));
+        }
+        else if(attempt3 < nbrMystère){
+            alert("Trop petit")
+            attempt3 = parseInt(prompt("Trouvez le nombre mystère: "));
+        }
+        else{
+            alert("Veuillez entrer un nombre entre 1 et 10!");
+            attempt3 = parseInt(prompt("Trouvez le nombre mystère: "));
+        }
+    }
+    else{
+        alert(`Bravo, Tu as trouvé! Le nombre mystère était: ${nbrMystère}`)
+        break
+    }
+}
+
