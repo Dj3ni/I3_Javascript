@@ -1,3 +1,4 @@
+
 // Création d'un élément HTML => createElement("tagName")
 
 const p = document.createElement("p");
@@ -10,6 +11,7 @@ p.id = "customParagraph";
 
 p.classList.add('myCustomClass')
 p.classList.add ('mySecondCustomClass', 'myThirdCustomClass')
+
 
 // Paramètrer le comportement de l'élément:
 
@@ -49,3 +51,14 @@ p.addEventListener("mouseleave",  (event)=>{ //event: récupérer l'évènement 
     // parent.append(childNode)
 const WRAPPER = document.getElementById("wrapper");
 WRAPPER.append(p)
+
+// Supprimer un élément
+const p1 = document.getElementById("p1");
+const p2 = document.getElementById("p2");
+const container = document.getElementById("container");
+        // 1. Méthode remove()=>supprime l'élément
+            p1.remove();
+        // 2. parent.removeChild(element) =>supprime l'élément dans le parent
+            container.removeChild(p2)
+
+// parentNode: permet de récupérer le noeud parent

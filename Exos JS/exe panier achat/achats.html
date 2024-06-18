@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./achats.js" defer></script>
+    <style>
+        table, tr, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Faire son shopping</h1>
+
+    <div><table>
+        <thead>
+                <th>Article</th>
+                <th>Prix</th>
+            </thead>
+        <tbody>            
+            <tr>
+                <td>Lampe</td>
+                <td>25</td>
+                <td><button class ="addBtn">Ajouter au panier</button></td>
+            </tr>
+            <tr>
+                <td>Clavier</td>
+                <td>250</td>
+                <td><button class ="addBtn">Ajouter au panier</button></td>
+            </tr>            
+        </tbody>
+    </table></div>
+    <br>
+
+    <div>
+        <table id ="totalTab">
+            <tbody>
+                <tr>
+                    <td>Total: </td>
+                    <td id = "total">0</td>
+                    <td>€</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    
+</body>
+</html>
