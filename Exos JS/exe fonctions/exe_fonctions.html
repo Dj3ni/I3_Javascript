@@ -7,13 +7,20 @@
     <script src="exe_fonctions.js"defer></script>
 </head>
 <body>
-    <label for="number"></label>
-    <input id ="number" type="number">
+    <h1>Exe fonctions</h1>
+    <form id="form"><fieldset>
+        <div>
+            <label for="number">Nombre encodé: </label>
+            <input id ="number" type="number" value = "0">
+        </div>
+        <br>
 
-    <label for="resultat"></label>
-    <input id ="resultat" type="number">
+        <div><label for="resultat">Résultat: </label>
+        <input id ="resultat" type="number" value = "0" disabled></div>
+        <br>
 
-    <button type ="submit">Calculer le carré</button>
+        <button id = "btnSquare" type ="submit">Calculer le carré</button>
+    </fieldset></form>
     
 </body>
 </html>
