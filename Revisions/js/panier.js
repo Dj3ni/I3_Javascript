@@ -79,37 +79,57 @@ for (const article in articleList) {
     
 }
 
-
-
-
-
-
 function addToCart(PRODUCT_ROW,SUB_TOTAL){
 
-    // J'ajoute les produits dans mon panier
     const CART_TAB = document.getElementById("panier")
-    // Je crée une nouvelle ligne
-    const CART_ROW = document.createElement("tr");
-    const CART_ARTICLE = document.createElement("td");
-    const CART_SUB = document.createElement("td");
-    // Je leur donne des valeurs
-    CART_ARTICLE.innerText = PRODUCT_ROW.children[0].textContent;
-    CART_SUB.innerText = SUB_TOTAL
 
-    // Je les ajoute dans HTML
-    CART_ROW.appendChild(CART_ARTICLE);
-    CART_ROW.appendChild(CART_SUB);
+    if(checkArticleName(PRODUCT_ROW,SUB_TOTAL) === false){
+            // Je crée une nouvelle ligne
+        const CART_ROW = document.createElement("tr");
+        const CART_ARTICLE = document.createElement("td");
+        const CART_SUB = document.createElement("td");
+        // Je leur donne des valeurs
+        CART_ARTICLE.innerText = PRODUCT_ROW.children[0].textContent;
+        CART_SUB.innerText = SUB_TOTAL
 
-    const TOTAL_TAB = document.getElementById("total");
+        // Je les ajoute dans HTML
+        CART_ROW.appendChild(CART_ARTICLE);
+        CART_ROW.appendChild(CART_SUB);
 
-    if(!TOTAL_TAB){
-        CART_TAB.appendChild(CART_ROW);
+        const TOTAL_TAB = document.getElementById("total");
+
+        if(!TOTAL_TAB){
+            CART_TAB.appendChild(CART_ROW);
+        }
+        else{
+            CART_TAB.insertBefore(CART_ROW, TOTAL_TAB);
+        }
     }
-    else{
-        CART_TAB.insertBefore(CART_ROW, TOTAL_TAB);
-    }
+    
 }
 
+function checkArticleName(PRODUCT_ROW,SUB_TOTAL){
+
+    const CART_ROWS = document.querySelectorAll("#panier tr:not(totalLine)");
+    const PRODUCT_NAME = PRODUCT_ROW.children[0].innerText;
+
+    let found = false;
+
+    for (const row of CART_ROWS) {
+            // Si trouvé, mettre sous-total à jour
+        if(row.children[0].innerText === PRODUCT_NAME){
+            // On sauvegarde le montant actuel
+            const CURRENT_CART_SUBTOTAL = parseFloat(row.children[1].innerText);
+            // On calcule le nouveau montant
+            const NEW_CART_SUBTOTAL = (CURRENT_CART_SUBTOTAL + parseFloat(SUB_TOTAL)).toFixed(2);
+            // On fait la mise à jour du montant dans le tableau
+            row.children[1].innerText = NEW_CART_SUBTOTAL;
+            found = true;
+            break //Si trouvé, ça ne sert à rien de continuer à boucler!
+        }
+    }
+    return found;
+}
 
 function updateTotal(){
     
