@@ -6,10 +6,33 @@ const PANIER = document.querySelectorAll("table td:nth-child(3)");
 // console.dir(PANIER);
 const ROW = document.querySelectorAll("#articles tbody tr");
 console.dir(ROW);
+const ARTICLE_TABLE = document.getElementById("articles");
+console.dir(ARTICLE_TABLE);
 
-// Je génère dynamiquement les boutons paniers
+// Je génère le tableau à partir d'une liste d'articles
+let articleList = {
+    "Lampe": 4.5,
+    "Télévision": 300,
+    "Coca": 2,
+    "Plante": 15.50,
+    "Chips": 1.5,
+}
 
-for (const i of ROW) {
+for (const article in articleList) {
+    let price = articleList[article];
+    console.log(price);
+    // Je crée, TR et TD
+    const CREATE_TR = document.createElement("tr");
+    const ARTICLE_NAME = document.createElement("td");
+    const ARTICLE_PRICE = document.createElement("td");
+    // Je leur donne des valeurs
+    ARTICLE_NAME.innerText = article;
+    ARTICLE_PRICE.innerText = price;
+    // Je les ajoute au doc HTML
+    CREATE_TR.appendChild(ARTICLE_NAME);
+    CREATE_TR.appendChild(ARTICLE_PRICE);
+
+    // Je génère dynamiquement les boutons paniers
 
     // Je crée le bouton , l'input et la td qui va les contenir
     const TD = document.createElement("td");
@@ -19,11 +42,12 @@ for (const i of ROW) {
     INPUT.setAttribute("type","number");
     INPUT.setAttribute("min","0");
     INPUT.setAttribute("value","1");
-    
+
     // Je les ajoute au contenu HTML
     TD.append(INPUT);
     TD.append(panier);
-    i.appendChild(TD);
+    CREATE_TR.appendChild(TD);
+    ARTICLE_TABLE.appendChild(CREATE_TR);
 
     // J'ajoute l'évènement sur le bouton panier
 
@@ -47,11 +71,18 @@ for (const i of ROW) {
     // ajout des produits au panier
     addToCart(PRODUCT_ROW,SUB_TOTAL);
 
-    // // Mise à jour de ligne de Total
+    // Mise à jour de ligne de Total
     updateTotal();
         
     })
-} 
+    // }
+    
+}
+
+
+
+
+
 
 function addToCart(PRODUCT_ROW,SUB_TOTAL){
 
