@@ -73,10 +73,8 @@ for (const article in articleList) {
 
     // Mise à jour de ligne de Total
     updateTotal();
-        
-    })
-    // }
-    
+            
+    })    
 }
 
 function addToCart(PRODUCT_ROW,SUB_TOTAL){

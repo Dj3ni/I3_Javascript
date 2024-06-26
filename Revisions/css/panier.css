@@ -2,10 +2,14 @@ table, th, td, tr {
     border: 1px solid;
     border-collapse: collapse;
     padding: 5px;
-    text-align: center;
+    text-align: center;    
 }
 
 input{
     max-width: 50px;
     margin-right: 10px;
+}
+
+table{
+    margin: auto;
 }
