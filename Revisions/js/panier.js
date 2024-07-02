@@ -37,7 +37,7 @@ for (const article in articleList) {
     // Je crée le bouton , l'input et la td qui va les contenir
     const TD = document.createElement("td");
     const panier = document.createElement("button");
-    panier.innerText = "🛒";
+    panier.innerText = "🛒";    
     const INPUT = document.createElement("input");
     INPUT.setAttribute("type","number");
     INPUT.setAttribute("min","0");
@@ -74,7 +74,9 @@ for (const article in articleList) {
     // Mise à jour de ligne de Total
     updateTotal();
             
-    })    
+    })
+    
+    // J'ajoute l'évènement sur le bouton
 }
 
 function addToCart(PRODUCT_ROW,SUB_TOTAL){
@@ -86,13 +88,17 @@ function addToCart(PRODUCT_ROW,SUB_TOTAL){
         const CART_ROW = document.createElement("tr");
         const CART_ARTICLE = document.createElement("td");
         const CART_SUB = document.createElement("td");
+        const removeArticle = document.createElement("button");
+    
         // Je leur donne des valeurs
         CART_ARTICLE.innerText = PRODUCT_ROW.children[0].textContent;
-        CART_SUB.innerText = SUB_TOTAL
+        CART_SUB.innerText = SUB_TOTAL;
+        removeArticle.innerText = "❌";
 
         // Je les ajoute dans HTML
         CART_ROW.appendChild(CART_ARTICLE);
         CART_ROW.appendChild(CART_SUB);
+        CART_ROW.appendChild(removeArticle);
 
         const TOTAL_TAB = document.getElementById("total");
 
@@ -102,6 +108,14 @@ function addToCart(PRODUCT_ROW,SUB_TOTAL){
         else{
             CART_TAB.insertBefore(CART_ROW, TOTAL_TAB);
         }
+
+        // J'ajoute l'évènement pour le bouton remove (à terminer, ne marche pas)
+        removeArticle.addEventListener("click",(event)=>{
+            const CURRENT_ROW = event.target.parentNode.parentNode;
+            CURRENT_ROW.remove();
+
+        });
+
     }
     
 }
