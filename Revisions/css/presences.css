@@ -1,0 +1,10 @@
+table,td,th{
+    border: 1px solid;
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: center;
+}
+
+button{
+    margin:5px;
+}
