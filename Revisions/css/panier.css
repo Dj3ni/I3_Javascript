@@ -2,7 +2,7 @@ table, th, td, tr {
     border: 1px solid;
     border-collapse: collapse;
     padding: 5px;
-    text-align: center;    
+    text-align: center;     
 }
 
 input{

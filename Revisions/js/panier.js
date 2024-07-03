@@ -1,13 +1,16 @@
-// Récupérer les éléments
+// Récupérer les éléments pour le panier
 
 const PRICE = document.querySelectorAll("table td:nth-child(2)");
-console.dir(PRICE)
+// console.dir(PRICE)
 const PANIER = document.querySelectorAll("table td:nth-child(3)");
 // console.dir(PANIER);
 const ROW = document.querySelectorAll("#articles tbody tr");
-console.dir(ROW);
+// console.dir(ROW);
 const ARTICLE_TABLE = document.getElementById("articles");
-console.dir(ARTICLE_TABLE);
+// console.dir(ARTICLE_TABLE);
+
+
+
 
 // Je génère le tableau à partir d'une liste d'articles
 let articleList = {
@@ -69,36 +72,78 @@ for (const article in articleList) {
     console.log(SUB_TOTAL);
         
     // ajout des produits au panier
-    addToCart(PRODUCT_ROW,SUB_TOTAL);
+    addToCart(PRODUCT_ROW,SUB_TOTAL,QUANTITY);
+
+    // ajout du bouton clear cart
+    addClearBtn();
 
     // Mise à jour de ligne de Total
     updateTotal();
-            
+
     })
-    
-    // J'ajoute l'évènement sur le bouton
 }
 
-function addToCart(PRODUCT_ROW,SUB_TOTAL){
+function addClearBtn(){
+    // Récupérer les éléments pour le bouton Vider Panier
+    const CLEAR_BTN = document.getElementById("btnClear");
+    console.log (CLEAR_BTN);
+    const CART_TABLE = document.getElementById("panier");
+    console.dir(CART_TABLE);
+
+    // Si le bouton n'existe pas encore, je le génère et ajoute l'évènement
+    if(!CLEAR_BTN){
+        // Je crée le bouton et la td qui va l'accueillir ( ici th car je le me dans le thead)
+        let clearBtn = document.createElement("button");
+        const TH = document.createElement("th");
+        // console.log(TH);
+
+        // Je leur donne une valeur 
+        clearBtn.textContent = "Vider le panier";
+        clearBtn.id = "btnClear";
+        
+
+        // Je crée l'évènement sur le bouton vider Panier
+        clearBtn.addEventListener("click",function(){
+            while (CART_TABLE.children[2]){
+                CART_TABLE.removeChild(CART_TABLE.children[2]);
+                // Si c'est la dernière ligne, je n'efface pas , je refais un update du total
+                if (CART_TABLE.children[2].id === "total" ){
+                    updateTotal();
+                    break;
+                }
+            }
+        })
+
+        // Je les ajoute dans le HTML
+        TH.appendChild(clearBtn);
+        CART_TABLE.children[0].lastElementChild.appendChild(TH);
+    }
+}
+
+
+function addToCart(PRODUCT_ROW,SUB_TOTAL,QUANTITY){
 
     const CART_TAB = document.getElementById("panier")
 
-    if(checkArticleName(PRODUCT_ROW,SUB_TOTAL) === false){
+    if(checkArticleName(PRODUCT_ROW,SUB_TOTAL,QUANTITY) === false){
             // Je crée une nouvelle ligne
         const CART_ROW = document.createElement("tr");
         const CART_ARTICLE = document.createElement("td");
+        const CART_QUANTITY = document.createElement("td");
         const CART_SUB = document.createElement("td");
-        const removeArticle = document.createElement("button");
+        const REMOVE_ARTICLE = document.createElement("button");
     
         // Je leur donne des valeurs
         CART_ARTICLE.innerText = PRODUCT_ROW.children[0].textContent;
         CART_SUB.innerText = SUB_TOTAL;
-        removeArticle.innerText = "❌";
+        CART_QUANTITY.innerText = QUANTITY;
+        REMOVE_ARTICLE.innerText = "❌";
 
         // Je les ajoute dans HTML
         CART_ROW.appendChild(CART_ARTICLE);
+        CART_ROW.appendChild(CART_QUANTITY);
         CART_ROW.appendChild(CART_SUB);
-        CART_ROW.appendChild(removeArticle);
+        CART_ROW.appendChild(REMOVE_ARTICLE);
 
         const TOTAL_TAB = document.getElementById("total");
 
@@ -110,17 +155,18 @@ function addToCart(PRODUCT_ROW,SUB_TOTAL){
         }
 
         // J'ajoute l'évènement pour le bouton remove (à terminer, ne marche pas)
-        removeArticle.addEventListener("click",(event)=>{
-            const CURRENT_ROW = event.target.parentNode.parentNode;
+        REMOVE_ARTICLE.addEventListener("click",(event)=>{
+            const CURRENT_ROW = event.target.parentNode;
             CURRENT_ROW.remove();
-
+            updateTotal();
         });
-
-    }
+    } 
     
 }
 
-function checkArticleName(PRODUCT_ROW,SUB_TOTAL){
+
+function checkArticleName(PRODUCT_ROW,SUB_TOTAL,QUANTITY){ 
+    //Cette fonction me permet de voir si la ligne existe déjà dans mon panier et si oui de mettre à jour quantités et montants
 
     const CART_ROWS = document.querySelectorAll("#panier tr:not(totalLine)");
     const PRODUCT_NAME = PRODUCT_ROW.children[0].innerText;
@@ -131,11 +177,14 @@ function checkArticleName(PRODUCT_ROW,SUB_TOTAL){
             // Si trouvé, mettre sous-total à jour
         if(row.children[0].innerText === PRODUCT_NAME){
             // On sauvegarde le montant actuel
-            const CURRENT_CART_SUBTOTAL = parseFloat(row.children[1].innerText);
+            const CURRENT_CART_SUBTOTAL = parseFloat(row.children[2].innerText);
+            const CURRENT_CART_QUANTITY = parseInt(row.children[1].innerText);
             // On calcule le nouveau montant
             const NEW_CART_SUBTOTAL = (CURRENT_CART_SUBTOTAL + parseFloat(SUB_TOTAL)).toFixed(2);
+            const NEW_CART_QUANTITY = (CURRENT_CART_QUANTITY + parseInt(QUANTITY));
             // On fait la mise à jour du montant dans le tableau
-            row.children[1].innerText = NEW_CART_SUBTOTAL;
+            row.children[2].innerText = NEW_CART_SUBTOTAL;
+            row.children[1].innerText = NEW_CART_QUANTITY;
             found = true;
             break //Si trouvé, ça ne sert à rien de continuer à boucler!
         }
@@ -144,36 +193,54 @@ function checkArticleName(PRODUCT_ROW,SUB_TOTAL){
 }
 
 function updateTotal(){
+    // Cette fonction me permet de mettre à jour la ligne de total
     
     let total = 0;
-    // Je vais chercher les éléments
-    
+    let totalQuantity = 0;
+
+    // Je vais chercher les éléments    
     const TOTAL_TAB = document.getElementById("total");
-    const TOTAL_LIST = document.querySelectorAll("#panier tr td:nth-child(2):not(#totalLine")
+    const TOTAL_LIST = document.querySelectorAll("#panier tr td:nth-child(3):not(#totalLine)");
+    const TOTAL_QUANTITY_LIST = document.querySelectorAll("#panier tr td:nth-child(2):not(#totalLineQuantity)");
     // console.dir(TOTAL_LIST)
 
-    // J'itère dans le tableau pour calculer le total
+    // J'itère dans le tableau pour calculer le montant total
     for (const i of TOTAL_LIST) {
         total = total + parseFloat(i.innerText);        
     }
+
+    // J'itère dans le tableau pour calculer la quantité totale
+    for(const i of TOTAL_QUANTITY_LIST){
+        totalQuantity = totalQuantity + parseInt(i.innerText);
+    }
+
     // Je vérifie si la ligne de total existe sinon je l'ajoute au tableau
     let totalLine = document.getElementById("totalLine");
-    if(!totalLine){
-        // Je crée les élemnets de ma ligne
+    let totalLineQuantity = document.getElementById('totalLineQuantity');
+    if(!totalLine && !totalLineQuantity){
+
+        // Je crée les élements de ma ligne
         const TOTAL_ROW = document.createElement("tr");
         const TOTAL_TD = document.createElement("td");
-        const TOTAL_VALUE = document.createElement("td");        
+        const TOTAL_QUANTITY = document.createElement("td");
+        const TOTAL_VALUE = document.createElement("td");
+
         // Je leur donne une valeur
         TOTAL_TD.innerText = "Total de la commande: ";
-        totalLine = TOTAL_VALUE
-        totalLine.id = "totalLine"
+        totalLineQuantity = TOTAL_QUANTITY;
+        totalLineQuantity.id = "totalLineQuantity";
+        totalLine = TOTAL_VALUE;
+        totalLine.id = "totalLine";
+
         // Je les ajoute au HTML
         TOTAL_ROW.appendChild(TOTAL_TD); 
+        TOTAL_ROW.appendChild(totalLineQuantity);
         TOTAL_ROW.appendChild(totalLine);
         TOTAL_TAB.appendChild(TOTAL_ROW);
     }
     
     // Je mets à jour le contenu de ma case Total
     totalLine.textContent = `${total.toFixed(2)}`;
+    totalLineQuantity.textContent = `${totalQuantity}`;
 }
 

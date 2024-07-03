@@ -50,7 +50,7 @@ LI.insertAdjacentElement("afterbegin",CHECK);
 LI.appendChild(REMOVE);
 LIST.append(LI);
 
-// Ajout Bouton Clear
+// Ajout Bouton Clear List
 let clear = document.getElementById("clearButton");
 if(!clear){
     const CLEAR = document.createElement("button");
@@ -66,7 +66,7 @@ if(!clear){
     CLEAR.style.margin="5px";
     BTN.insertAdjacentElement("afterend",CLEAR);
 }
-// Vider le champ
+// Vider le champ après chaque saisie
 ARTICLE_INPUT.value = "";
 
 }
