@@ -63,7 +63,7 @@ for (const article in articleList) {
     console.log(PRODUCT_PRICE);
 
     // Je regarde la quantité sélectionnée
-    QUANTITY = event.target.previousSibling.valueAsNumber
+    QUANTITY = parseInt(event.target.previousSibling.valueAsNumber);
     console.log(QUANTITY);
 
     // Calculer le sous-total:
@@ -101,16 +101,17 @@ function addClearBtn(){
         clearBtn.textContent = "Vider le panier";
         clearBtn.id = "btnClear";
         
-
         // Je crée l'évènement sur le bouton vider Panier
         clearBtn.addEventListener("click",function(){
             while (CART_TABLE.children[2]){
+                CART_TABLE.removeChild(CART_TABLE.children[2]);
                 // Si c'est la dernière ligne, je n'efface pas, je refais un update du total
-                if (CART_TABLE.children[2].id !== "total" ){
-                    updateTotal();                
+                if (CART_TABLE.children[2].id === "total" ){
+                    updateTotal();
+                    TH.remove();
+                    break;                
                 }
             }
-            
         })
 
         // Je les ajoute dans le HTML
