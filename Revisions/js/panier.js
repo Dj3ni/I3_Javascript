@@ -106,11 +106,11 @@ function addClearBtn(){
         clearBtn.addEventListener("click",function(){
             while (CART_TABLE.children[2]){
                 CART_TABLE.removeChild(CART_TABLE.children[2]);
-                // Si c'est la dernière ligne, je n'efface pas , je refais un update du total
-                if (CART_TABLE.children[2].id === "total" ){
-                    updateTotal();
-                    break;
-                }
+                // Si c'est la dernière ligne, je n'efface pas, je refais un update du total
+            //     if (CART_TABLE.children[2].id === "total" ){
+            //         updateTotal();                
+            //         break;
+            //     }
             }
         })
 
