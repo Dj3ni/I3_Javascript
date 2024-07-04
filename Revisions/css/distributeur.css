@@ -1,0 +1,101 @@
+body{
+    margin:0;
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    box-sizing: border-box;
+}
+
+#Distributeur{
+    background-color: #a8a8a8;
+    height:600px;
+    width:500px;
+    padding: 30px;
+    margin: auto;
+    border-radius: 30px;
+    box-shadow: 0 5px 5px 0 black;
+    display: grid;
+    grid-template-columns:repeat(2,300px);
+    grid-template-rows: repeat(2,300);
+    grid-gap: 30px;
+    
+}
+
+#collector{
+    background-color: #222222;
+    height: 100px;
+    width: 300px;
+    border-radius: 30px;
+    margin: 10px;
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#collector div{
+    width: 400px;
+    height: 100px;
+    display:flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#collector img{
+    max-width: 100%;
+    max-height: 100%;
+    transform: rotate(90deg);
+}
+
+
+/* Clavier */
+
+#choicePad{
+    background-color: #222222;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: fit-content;
+    max-height:205px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;}
+
+#screen{
+    height:60px;
+    width: 100%;
+    background-color: rgb(198,237,235);
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: black;
+    overflow: hidden;
+    word-wrap: break-word;
+;}
+
+#keypad{
+    display: grid;
+    grid-template-columns: repeat(3,30px);
+    grid-template-rows: repeat(4,30px);
+    grid-gap: 5px;
+    margin: 5px 0 5px 0;
+}
+
+button{
+    border:none;
+    outline:none; /*bordure quand on appuie sur le bouton*/
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    box-shadow: 0 3px #a8a8a8 ;
+    font-size: 16px;
+    padding: 3px;
+}
+
+button:active{
+    box-shadow: 0 1px a8a8a8;/*je diminue l'ombre quand on clique*/
+    transform:translateY(2px); /*le bouton s'enfonce vers le bas (axe y)*/
+}
+
+/* Drinks */
+
+#drinks{
+    background-color: rgb(198,237,235);
+    display: grid;
+    border-radius: 20px;
+}
