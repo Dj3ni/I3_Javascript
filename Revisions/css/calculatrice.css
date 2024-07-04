@@ -13,12 +13,16 @@ body{
     justify-content: center;
     align-items: center;
     font-family: sans-serif;
+    background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
 }
 
 .calculatrice{
-    background-color: tomato;
+    background-color: #222222;
     display: flex;
     flex-direction: column;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 5px black; /*ombre vers le bas */
 }
 
 .screen{
@@ -32,6 +36,7 @@ body{
     align-items: flex-end;
     padding: 5px;
     font-size: 25px;
+    color: black;
 }
 
 .keypad{
@@ -39,6 +44,36 @@ body{
     grid-template-columns: repeat(4,50px);
     grid-template-rows: (5,50px);
     grid-gap:7px;
+}
+
+button{
+    border:none;
+    outline:none; /*bordure quand on appuie sur le bouton*/
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    box-shadow: 0 3px #a8a8a8 ;
+    font-size: 18px;
+    padding: 5px;
+}
+
+button:active{
+    box-shadow: 0 1px a8a8a8;/*je diminue l'ombre quand on clique*/
+    transform:translateY(2px); /*le bouton s'enfonce vers le bas (axe y)*/
+}
+
+button[data-key ="8"]{
+    background-color: #ff9900;
+    font-weight: bold;
+    color: white;
+}
+
+button[data-key = "187"]{
+    grid-column: span 2;
+    background-color: #36e700;
+    font-weight: bold;
+    color: white;
+    font-size: 35px;
+
 }
 
 /* CSS solo */
