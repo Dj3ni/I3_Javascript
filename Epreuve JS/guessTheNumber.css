@@ -1,0 +1,11 @@
+/* Jenny Fernandez Garcia Wad24 */
+
+table,thead,tr, th{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;    
+}
+
+#guess, #guessBtn{
+    margin-bottom: 10px;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Jenny Fernandez Garcia Wad24 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./guessTheNumber.css">
+    <script src="./guessTheNumber.js" defer></script>
+    <title>epreuve Guess the Number</title>
+</head>
+<body>
+    <h1>Bienvenue à Guess the Number!</h1>
+    <div id = "guessing">
+        <p>Veuillez entrer un nombre entre 1 et 100:</p>
+        <input type="number" name="guess" id="guess" min = "1" max = "100">
+        <button id = "guessBtn">Soumettre</button>
+        <div id ="response"></div>
+        <p></p>
+    </div>
+    <div id = "recap">
+        <h3>Récapitulatif de vos essais</h3>
+        <table id = "recapTable">
+            <thead>
+                <th colspan="3">Votre proposition</th>                
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+    </div>
+
+    
+</body>
+</html>
