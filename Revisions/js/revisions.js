@@ -35,3 +35,5 @@ p.innerText = "valeur suivante";
 
 const valeurD = document.querySelector("div p:nth-child(4)")
 valeurD.remove();
+
+// .map (lors d'un foreach va recréer un tableau avec les valeurs trouvées)

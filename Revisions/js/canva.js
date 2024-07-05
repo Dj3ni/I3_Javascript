@@ -1,7 +1,7 @@
 // Tableau des couleurs
 
 const COLOR_TAB_DIV = document.getElementById("colorTable");
-const COLOR_TAB = ["yellow","red","green","blue","orange","pink","grey","purple"];
+const COLOR_TAB = ["yellow","red","green","blue","orange","pink","grey","purple","aliceblue","brown"];
 
 let currentColor; //variable qui va mémoriser la couleur clickée
 
@@ -56,6 +56,8 @@ function createColorGrid(tab, div){
         // Give class
         COLOR_DIV.classList.add("colors");
         COLOR_DIV.classList.add(color);
+        // Give background color
+        COLOR_DIV.style.backgroundColor = color;
         // Give listener
         COLOR_DIV.addEventListener("click",()=>{
             currentColor = color;
