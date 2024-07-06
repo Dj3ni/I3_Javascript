@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="./guessTheNumber.css">
     <!-- font family timer -->
     <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
-    <script src="./guessTheNumber.js" defer></script>
+    <!-- Script de l'examen -->
+    <!-- <script src="./guessTheNumber.js" defer></script> -->
+    <!-- Script amélioré -->
+    <script src="./refactor.js" defer></script>
     <title>epreuve Guess the Number</title>
 </head>
 <body>
@@ -16,11 +19,12 @@
         <div class = "timer">
             <h3>Timer:</h3>
             <div id = "timer"></div>
+            <div id ="start"></div>
         </div>
         <div id = "guessing">
             <p>Veuillez entrer un nombre entre 1 et 100:</p>
-            <input type="number" name="guess" id="guess" min = "1" max = "100">
-            <button id = "guessBtn">Soumettre</button>
+            <input type="number" name="guess" id="guess" min = "1" max = "100" disabled>
+            <button id = "guessBtn" disabled>Soumettre</button>
             <div id ="response"></div>
             <p></p>
         </div>

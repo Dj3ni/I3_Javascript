@@ -46,3 +46,7 @@ article{
     font-family: 'Orbitron', sans-serif;
     font-size: xx-large;
 }
+
+.timer button{
+    margin: 10px;
+}
