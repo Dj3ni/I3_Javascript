@@ -11,11 +11,15 @@
     <!-- <script src="./guessTheNumber.js" defer></script> -->
     <!-- Script amélioré -->
     <script src="./refactor.js" defer></script>
+    <!-- script confettis -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
     <title>epreuve Guess the Number</title>
 </head>
 <body>
     <h1>Bienvenue à Guess the Number!</h1>
     <article>
+        <canvas id="confetti-canvas"></canvas>
         <div class = "timer">
             <h3>Timer:</h3>
             <div id = "timer"></div>
@@ -27,6 +31,7 @@
             <button id = "guessBtn" disabled>Soumettre</button>
             <div id ="response"></div>
             <p></p>
+        </div>
         </div>
         <div id = "recap">
             <h3>Récapitulatif de vos essais</h3>

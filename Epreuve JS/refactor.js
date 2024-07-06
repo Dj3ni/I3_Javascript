@@ -48,6 +48,7 @@ ATTEMPT.textContent = " Il vous reste " + `${attempt}`+ " tentatives";
 TIMER.textContent = `${minutes}`+ ": 00";
 startGame();
 
+
 // 5. Liste des fonctions
 
 // Cette fonction réintialise le document afin de pouvoir relancer une partie
@@ -154,7 +155,7 @@ function compareToMysteryNumber(){
         
         // Si bonne réponse
         else{
-
+            winGame();
             RESPONSE.innerHTML = " 🎉Bravo, tu as trouvé en "+ `${ATTEMPT_MAX - attempt +1}` + " tentative(s)!🎉 Le nombre mystère était bien : " + `${mysteryNumber}`;
             stopGame()
 
@@ -225,7 +226,48 @@ function startGame(){
     START_DIV.appendChild(START);
 }
 
+function winGame(){
+    const CANVAS = document.getElementById("confetti-canvas");
 
+    // Code pour créer des feux d'artifice de confettis pendant 15 secondes
+
+    let duration = 15*1000;
+    let animationEnd = Date.now() + duration;
+    let defaults = { //Ici on donne les paramètres de 
+        startVelocity: 30, 
+        spread: 360, 
+        ticks: 60, 
+        zIndex: 0 
+    };
+
+    function randomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    let interval = setInterval(()=>{
+        let timeLeft = animationEnd - Date.now();
+        if (timeLeft <= 0){
+            return clearInterval(interval);
+        }
+        let particleCount = 50 * (timeLeft /duration)
+
+        // Start a bit higher than random
+        confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
+        confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
+
+    } ,250);
+
+    /*   Cette partie-ci ne fait le code qu'une seule fois, commenter l'autre partie du code pour la faire fonctionner
+    let myConfetti = confetti.create(CANVAS, {
+            resize: true,
+            useWorker: true
+        });
+        myConfetti({
+            particleCount: 150, // Nombre de confetti à lancer
+            spread: 180,// Angle maximal de dispersion des confettis
+        });
+    }*/
+}
 
 
 

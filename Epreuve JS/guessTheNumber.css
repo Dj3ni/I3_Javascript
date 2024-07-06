@@ -50,3 +50,13 @@ article{
 .timer button{
     margin: 10px;
 }
+
+#confetti-canvas {
+    position: fixed; 
+    z-index: 999; 
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh; 
+    pointer-events: none;
+}
