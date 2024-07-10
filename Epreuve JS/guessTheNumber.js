@@ -190,7 +190,7 @@ function compareToMysteryNumber(){
     }
 }
 
-// Gérer le timer
+// // Gérer le timer
 setInterval(function(){
     if (minutes === 0 && secondes <= 30){
         TIMER.style.backgroundColor = "red";
