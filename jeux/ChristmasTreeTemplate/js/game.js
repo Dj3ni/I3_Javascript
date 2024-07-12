@@ -14,6 +14,7 @@ let config = { //objet
 
 let game = new Phaser.Game(config);
 let snowflakes;
+let stars;
 
 function preload() { //va télécharger tous les fichiers afin d'améliorer la fluidité
     this.load.image('background', './assets/images/back_2.png');
@@ -21,7 +22,7 @@ function preload() { //va télécharger tous les fichiers afin d'améliorer la f
     this.load.image('ribbon', './assets/images/ribbon.png');
     this.load.image('ribbonClear', './assets/images/ribbonClear.png');
     this.load.image('snowflake', './assets/images/snowflake.png');
-    this.load.image('poleStar', './assets/images/obj/star.png');
+    this.load.image('star', './assets/images/obj/star.png');
     this.load.image('teddybear', './assets/images/obj/obj_05.png');
     this.load.image('treeknot', './assets/images/obj/obj_25.png');
     this.load.image('boule1', './assets/images/obj/obj_21.png');
@@ -77,17 +78,22 @@ function create() { //va servir à créer la scène de base
     })
 
 // Etoile clignote
-    let starImage = this.add.image(100,100, 'poleStar');
-    let starImage2 = this.add.image(300,50, 'poleStar');
+
+    stars = this.add.group({
+        defaultKey: "star",
+        maxSize: 20,
+    })
+
+    let starsTimer = this.time.addEvent({
+        delay: 50,
+        callback: letItShine,
+        repeat: -1,
+    })
+    // let starImage = this.add.image(100,100, 'poleStar');
+    // let starImage2 = this.add.image(300,50, 'poleStar');
     
-    let tweenStar = this.tweens.add({
-        targets: {starImage, starImage2},//objet visé par le tween
-        alpha: 0, //valeur de transparence que je veux atteindre
-        duration: 1000, //en milisecondes
-        ease: 'Power2', //permet de calculer la manière dont on part d'une valeur à une autre
-        yoyo: true,
-        loop: -1, // va boucler à l'infini
-        });
+    
+    
 
 // Cadeaux
     let giftImage = this.add.image(500, 800, 'cadeau');
@@ -115,5 +121,20 @@ function letItSnow(){
     if (snowflake) {
         snowflake.setPosition(Phaser.Math.Between(10, 590), -10);
         snowflake.setVelocity(0,100);
+    }
+}
+
+function letItShine(){
+    let star = stars.get();
+    if (star){
+        star.setPosition(Phaser.Math.Between(10, 590), (0,300));
+        // let tweenStar = this.tweens.add({
+        //     targets: star,//objet visé par le tween
+        //     alpha: 0, //valeur de transparence que je veux atteindre
+        //     duration: 1000, //en milisecondes
+        //     ease: 'Power2', //permet de calculer la manière dont on part d'une valeur à une autre
+        //     yoyo: true,
+        //     loop: -1, // va boucler à l'infini
+        //     });
     }
 }
