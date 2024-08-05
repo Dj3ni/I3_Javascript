@@ -35,10 +35,8 @@ BTN.addEventListener("click",function(){
 
             // RESULT.innerHTML= ``+{city}+``;
             RESULT.innerHTML = "<h2>"+city +"</h2>" + temp + "<br>"+ description;
-        }
-        
+        }        
     }
-
     xhr.open("GET",urlApi);
     xhr.send();
 
